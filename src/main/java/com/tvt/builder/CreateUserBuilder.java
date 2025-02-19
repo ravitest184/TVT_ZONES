@@ -20,4 +20,12 @@ public class CreateUserBuilder {
         
         return user;
     }
+
+    public static CreateUser UpdateUserBuilder(String email){
+        Faker faker = new Faker();
+        
+        CreateUser user = new CreateUser();
+        user.setEmail(email); 
+        return user;
+    }
 }
