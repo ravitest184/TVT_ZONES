@@ -4,14 +4,16 @@ import com.tvt.utils.EndpointReader;
 import static io.restassured.RestAssured.given;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import com.tvt.*;
+
+//import com.tvt.*;
 
 public class UserApiClient {
 
     private static final String CREATE_USER_PATH = EndpointReader.getValueFromJson("user.post_url");
-    private static final String GET_USER_PATH = EndpointReader.getValueFromJson("user.post_url");;
-    private static final String UPDATE_USER_PATH = EndpointReader.getValueFromJson("user.post_url");
-    private static final String DELETE_USER_PATH = EndpointReader.getValueFromJson("user.post_url");
+    private static final String GET_USER_PATH = EndpointReader.getValueFromJson("user.get_url");;
+    private static final String UPDATE_USER_PATH = EndpointReader.getValueFromJson("user.update_url");
+    private static final String DELETE_USER_PATH = EndpointReader.getValueFromJson("user.delete_url");
+    private static final String BASE_URL = "https://petstore.swagger.io/v2";
 
     public static Response createUser(String name) {
         return given()
@@ -19,9 +21,7 @@ public class UserApiClient {
             .accept(ContentType.JSON)
             .body(CreateUserBuilder.createUserBuilder(name))
         .when()
-       // .post(Base.getBaseUrl());
-           .post("https://petstore.swagger.io/v2/user");
-           
+            .post(BASE_URL + "/user");
     }
 
     public static Response getUser(String username) {
@@ -29,7 +29,8 @@ public class UserApiClient {
             .contentType(ContentType.JSON)
             .pathParam("username", username)
         .when()
-            .get(EndpointReader.getValueFromJson(GET_USER_PATH));
+            //.get("https://petstore.swagger.io/v2/user/{username}");
+            .get(GET_USER_PATH);
     }
 
     public static Response updateUser(String username, String email) {
@@ -39,7 +40,7 @@ public class UserApiClient {
             .body(CreateUserBuilder.UpdateUserBuilder(email))
             .pathParam("username", username)
         .when()
-            .put(EndpointReader.getValueFromJson(UPDATE_USER_PATH));
+            .put(UPDATE_USER_PATH);
     }
 
     public static Response deleteUser(String username) {
@@ -47,6 +48,6 @@ public class UserApiClient {
             .contentType(ContentType.JSON)
             .pathParam("username", username)
         .when()
-            .delete(EndpointReader.getValueFromJson(DELETE_USER_PATH));
+            .delete(DELETE_USER_PATH);
     }
 }
