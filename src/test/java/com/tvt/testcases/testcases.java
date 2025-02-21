@@ -2,7 +2,7 @@ package com.tvt.testcases;
 
 import org.testng.annotations.Test;
 
-import com.tvt.builder.CreateUserBuilder;
+import com.tvt.builder.user.CreateUserBuilder;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;

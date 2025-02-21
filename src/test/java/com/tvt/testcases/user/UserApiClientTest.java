@@ -1,4 +1,4 @@
-package com.tvt.testcases;
+package com.tvt.testcases.user;
 
 import com.tvt.base.Base;
 import com.tvt.asserters.Asserter;

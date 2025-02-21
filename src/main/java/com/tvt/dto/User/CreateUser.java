@@ -1,4 +1,4 @@
-package com.tvt.dto;
+package com.tvt.dto.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -25,4 +25,25 @@ public class Asserter {
         Assert.assertEquals(actualEmail, expectedEmail, 
             "Expected email: " + expectedEmail + " but got: " + actualEmail);
     }
+
+    @Step("Verify response contains {path}: {expectedValue}")
+    public static void assertJsonPath(Response response, String path, String expectedValue) {
+        String actualValue = response.jsonPath().getString(path);
+        Assert.assertEquals(actualValue, expectedValue,
+            "Expected " + path + ": " + expectedValue + " but got: " + actualValue);
+    }
+
+    @Step("Verify response contains {path}: {expectedValue}")
+    public static void assertJsonPath(Response response, String path, int expectedValue) {
+        int actualValue = response.jsonPath().getInt(path);
+        Assert.assertEquals(actualValue, expectedValue,
+            "Expected " + path + ": " + expectedValue + " but got: " + actualValue);
+    }
+
+    @Step("Verify response contains {path}: {expectedValue}")
+    public static void assertJsonPath(Response response, String path, boolean expectedValue) {
+        boolean actualValue = response.jsonPath().getBoolean(path);
+        Assert.assertEquals(actualValue, expectedValue,
+            "Expected " + path + ": " + expectedValue + " but got: " + actualValue);
+    }
 }

@@ -1,5 +1,5 @@
 package com.tvt.client;
-import com.tvt.builder.CreateUserBuilder;
+import com.tvt.builder.user.CreateUserBuilder;
 import com.tvt.utils.EndpointReader;
 import static io.restassured.RestAssured.given;
 import io.restassured.http.ContentType;

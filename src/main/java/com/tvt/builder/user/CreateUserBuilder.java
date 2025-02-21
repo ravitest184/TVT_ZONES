@@ -1,7 +1,7 @@
-package com.tvt.builder;
+package com.tvt.builder.user;
 
 import com.github.javafaker.Faker;
-import com.tvt.dto.CreateUser;
+import com.tvt.dto.User.CreateUser;
 
 public class CreateUserBuilder {
 
